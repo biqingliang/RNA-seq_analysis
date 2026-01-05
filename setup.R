@@ -14,20 +14,20 @@ library(RColorBrewer)
 library(ggrepel)
 library(dplyr)
 
+# Importing Count Matrix                 
+counts <- read.table("count/count_matrix.txt", header = TRUE, row.names =1. sep = "\t")
 
-counts <- read.table("counts/count_matrix.txt",
-header = TRUE,
-row.names = 1,
-sep = "\t")
-
-colnames(counts) <- gsub("aligned_reads/", "", colnames(counts))
+# Normalizing column names
+colnames(counts) <- gsub("aligned_reads.", "", colnames(counts))
 colnames(counts) <- gsub("_sorted.bam", "", colnames(counts))
 
+# Create sample data
 sample_info <- data.frame(
 sample = colnames(counts),
-condition = c(rep("condition1", 4), rep("condition2", 4)),
-replicate = rep(1:4, 2)
+condition = c(rep("condition1", 2), rep("condition2", 2)),
+replicate = rep(1:2, 2)
 )
 rownames(sample_info) <- sample_info$sample
 
+#!!! Verify wheter your data order matches
 all(rownames(sample_info) == colnames(counts))
