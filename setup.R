@@ -1,9 +1,11 @@
+# Check if packages exist, if not, install packages
+if (!requireNameSpace("BiocManager", quietly = TRUE)
+  install.packages("BiocManager")
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-install.packages("BiocManager")
-BiocManager::install(c("DESeq2", "edgeR", "limma", "tximport"))
-install.packages(c("ggplot2", "pheatmap", "RColorBrewer", "ggrepel", "dplyr"))
+BiocManager::install(c("DESeq2","edgeR","limma","tximport")
+install.packages(c("ggplot2","pheatmap","RColorBrewer","ggrepel","dplyr")
 
+# Load packages
 library(DESeq2)
 library(edgeR)
 library(ggplot2)
@@ -11,6 +13,7 @@ library(pheatmap)
 library(RColorBrewer)
 library(ggrepel)
 library(dplyr)
+
 
 counts <- read.table("counts/count_matrix.txt",
 header = TRUE,
