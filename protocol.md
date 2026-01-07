@@ -157,7 +157,7 @@ library(dplyr)
 
 ```
 
-### 3.2 - Import Count matrix 
+### 3.2 - Import Count Matrix 
 ```R
 counts <- read.table("count/count_matrix.txt", header = TRUE, row.names =1. sep = "\t")
 
@@ -177,4 +177,8 @@ rownames(sample_info) <- sample_info$sample
 all(rownames(sample_info) == colnames(counts))
 ```
 
+### 3.3 - Fold Change Analysis, Chromosomes Assignment, and Visualization
+- DESEq2_analysis.R : DESeq2 for fold change analysis
+- chromosome.R : assign results to each chromosome (reference gene files needed)
+- visualization.R : generates PCA, MA, Dispersion, and Volcano plots, as well as heatmaps for visualization. 
 
