@@ -35,7 +35,7 @@ This yields -
 
 ```bash
 # Create QC directories (make sure to put all your raw reads in a raw_read directory beforehand)
-mkdie -p fastqc_raw multiqc_raw
+mkdir -p fastqc_raw multiqc_raw
 
 # FastQC on your raw reads
 fastqc -t 8 -o fastqc_raw/ raw_reads/*.fastq.gz
@@ -52,7 +52,7 @@ Use fastp for sequence trimming:
   
 ```bash
 for sample in sample1 sample2 sample 3 sample 4; do 
-fastq -i raw_reads/${sample}_R1.fastq.gz \
+fastp -i raw_reads/${sample}_R1.fastq.gz \
       -I raw_reads/${sample}_R2.fastq.gz \
       -o trimmed_reads/${sample}_R1_trimmed.fastq.gz \
       -O trimmed_reads/${sample}_R2_trimmed.fastq.gz \
