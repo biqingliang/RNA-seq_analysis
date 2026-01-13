@@ -65,7 +65,7 @@ done
 
 # Perform a post-trimming QC
 mkdir -p fastqc_trimmed multiqc_trimmed
-fastqc -t 8 -o fastq_trimmed/trimmed_reads/*_paired.fastq.gz
+fastqc -t 8 -o fastq_trimmed/trimmed_reads/*.fastq.gz
 multiqc fastqc_trimmed/ -o multiqc_trimmed/
 ```
 ### 2.4 Prepare the reference genome
